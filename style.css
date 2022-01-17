@@ -26,8 +26,8 @@ body {
 
 .grid {
     border: 1px solid black;
-    width: 140px;
-    height: 120px;
+    width: 280px;
+    height: 240px;
     display: flex;
     flex-wrap: wrap;
     box-sizing: content-box;
@@ -35,8 +35,8 @@ body {
 
 
 .grid div {
-    height: 20px;
-    width: 20px;
+    height: 40px;
+    width: 40px;
     box-sizing: border-box;
     border: solid 1px lightblue;
 }
@@ -51,12 +51,12 @@ body {
 
 .player-one {
     background-color: red;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 
 .player-two {
     background-color: blue;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 
 .highlight {
@@ -73,10 +73,10 @@ body {
 
 .player-color {
     display: inline-block;
-    min-width: 20px;
-    min-height: 20px;
+    min-width: 40px;
+    min-height: 40px;
     color: white;
-    line-height: 20px;
+    line-height: 40px;
     text-align: center;
 }
 
