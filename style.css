@@ -8,6 +8,10 @@ body {
     margin-bottom: 1rem;
 }
 
+#header {
+    cursor: pointer;
+}
+
 .container {
     max-width: 40rem;
     margin: 2rem auto;
