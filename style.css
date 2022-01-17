@@ -4,6 +4,10 @@ body {
     text-align: center;
 }
 
+#display {
+    margin-bottom: 1rem;
+}
+
 .container {
     max-width: 40rem;
     margin: 2rem auto;
@@ -57,12 +61,6 @@ body {
 
 
 #current-player {
-    display: inline-block;
-    min-width: 20px;
-    min-height: 20px;
-    color: white;
-    line-height: 20px;
-    text-align: center;
 }
 
 #result {

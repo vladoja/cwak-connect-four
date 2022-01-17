@@ -11,10 +11,13 @@
 <body>
     <h3>Connect Four</h3>
     <div class="container">
-        <div class="display">
-            <h5>The Current Player is: Player <span id="current-player">1</span>
-            </h5>
+        <div id="display">
+            <div id="current-player-display">
+                <h5>The Current Player is: Player <span id="current-player" class="player-color">1</span>
+                </h5>
+            </div>
             <h3 id="result">Winner is Player: <span class="player-color"></span></h3>
+            <button onclick="restartGame()">Restart Game</button>
         </div>
         <div class="grid">
             <div></div>

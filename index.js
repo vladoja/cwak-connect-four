@@ -1,3 +1,7 @@
+function restartGame() {
+    window.location.reload();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOMContentLoaded');
     const squares = document.querySelectorAll('.grid div');
@@ -6,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const displayCurrentPlayer = document.querySelector('#current-player');
     let currentPlayer = 1;
     let gameOver = false;
-    // displayCurrentPlayer.classList.toggle(createCurrentPlayerClass(currentPlayer));    
 
     for (let i = 0; i < squares.length - 7; i++) {
         squares[i].addEventListener('click', () => {
@@ -43,6 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const handleGameOver = (currentPlayer) => {
         gameOver = true;
+        const currentPlayerDisplay = document.querySelector('#current-player-display');
+        currentPlayerDisplay.style.display = "none";
         result.style.display = "block";
         resultColor.innerHTML = `${currentPlayer}`;
         resultColor.classList.add(createCurrentPlayerClass(currentPlayer));
