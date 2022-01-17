@@ -4,10 +4,16 @@ body {
     text-align: center;
 }
 
-.game {
-    padding-top: 10rem;
-    margin: auto;
-    display: inline-block;
+.container {
+    max-width: 40rem;
+    margin: 2rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+    border: 2px solid #ccc;
+    border-radius: 12px;
 }
 
 .grid {
@@ -55,7 +61,22 @@ body {
     min-width: 20px;
     min-height: 20px;
     color: white;
-} 
+    line-height: 20px;
+    text-align: center;
+}
+
+#result {
+    display: none;
+}
+
+.player-color {
+    display: inline-block;
+    min-width: 20px;
+    min-height: 20px;
+    color: white;
+    line-height: 20px;
+    text-align: center;
+}
 
 /* .display span {
     min-width: 10px;

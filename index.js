@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('DOMContentLoaded');
     const squares = document.querySelectorAll('.grid div');
     const result = document.querySelector('#result');
+    const resultColor = document.querySelector('#result .player-color');
     const displayCurrentPlayer = document.querySelector('#current-player');
     let currentPlayer = 1;
     let gameOver = false;
@@ -38,11 +39,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         squares[i].classList.add(`position-${i}`);
     }
-    
+
 
     const handleGameOver = (currentPlayer) => {
         gameOver = true;
-        result.innerHTML = `Winner is Player: ${currentPlayer}`;
+        result.style.display = "block";
+        resultColor.innerHTML = `${currentPlayer}`;
+        resultColor.classList.add(createCurrentPlayerClass(currentPlayer));
     }
 
     const checkIfBelowTaken = (squareId) => {
