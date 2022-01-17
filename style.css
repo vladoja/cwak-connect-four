@@ -57,11 +57,11 @@ body {
 
 .highlight {
     border: solid 2px aqua !important;
+    animation: blink 0.8s ease-in-out infinite;
 }
 
 
-#current-player {
-}
+#current-player {}
 
 #result {
     display: none;
@@ -76,7 +76,12 @@ body {
     text-align: center;
 }
 
-/* .display span {
-    min-width: 10px;
-    min-height: 10px;
-} */
+@keyframes blink {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.1);
+    }
+}
