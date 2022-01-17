@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     for (let i = 0; i < squares.length - gridWidth; i++) {
         squares[i].addEventListener('click', () => {
             console.log(`Clicked: ${i}`);
-            if (!gameOver && checkIfBelowTaken(i)) {
+            if (!gameOver && !checkIfCurrentTaken(i) && checkIfBelowTaken(i)) {
                 if (currentPlayer === 1) {
                     squares[i].classList.add('taken');
                     squares[i].classList.add('player-one');
@@ -54,6 +54,17 @@ document.addEventListener('DOMContentLoaded', () => {
         result.style.display = "block";
         resultColor.innerHTML = `${currentPlayer}`;
         resultColor.classList.add(createCurrentPlayerClass(currentPlayer));
+    }
+
+
+    const checkIfCurrentTaken = (squareId) => {
+        if (squareId < 0 && squareId >= squares.length) {
+            return false;
+        }
+        if (squares[squareId].classList.contains('taken')) {
+            return true;
+        }
+        return false;
     }
 
     const checkIfBelowTaken = (squareId) => {
