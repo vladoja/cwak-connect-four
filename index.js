@@ -3,7 +3,6 @@ function restartGame() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOMContentLoaded');
     const squares = document.querySelectorAll('.grid div');
     const result = document.querySelector('#result');
     const resultColor = document.querySelector('#result .player-color');
@@ -11,7 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentPlayer = 1;
     let gameOver = false;
 
-    for (let i = 0; i < squares.length - 7; i++) {
+    const gridHeight = 6;
+    const gridWidth = 7;
+    const gridTotalPositions = gridWidth * gridHeight;
+
+    for (let i = 0; i < squares.length - gridWidth; i++) {
         squares[i].addEventListener('click', () => {
             console.log(`Clicked: ${i}`);
             if (!gameOver && checkIfBelowTaken(i)) {
@@ -54,11 +57,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const checkIfBelowTaken = (squareId) => {
-        if (squareId < 0 && squareId >= squares.length - 7) {
+        if (squareId < 0 && squareId >= squares.length - gridWidth) {
             return false;
         }
-        if (squares[squareId + 7].classList.contains('taken')) {
-            console.log('Below square is taken')
+        if (squares[squareId + gridWidth].classList.contains('taken')) {
+            // console.log('Below square is taken');
             return true;
         }
         return false;
@@ -68,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let counter = 0;
         let positions = [];
         for (let i = 0; i < 4; i++) {
-            if (i > 0 && (position + i) % 7 === 0) {
+            if (i > 0 && (position + i) % gridWidth === 0) {
                 return;
             }
             if (squares[position + i].classList.contains(currentPlayer)) {
@@ -89,8 +92,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let positions = [];
         let currentPosition;
         for (let i = 0; i < 4; i++) {
-            currentPosition = position + i * 7;
-            if ((currentPosition) >= 42) {
+            currentPosition = position + i * gridWidth;
+            if ((currentPosition) >= gridTotalPositions) {
                 return;
             }
             if (squares[currentPosition].classList.contains(currentPlayer)) {
@@ -111,13 +114,13 @@ document.addEventListener('DOMContentLoaded', () => {
         let positions = [];
         let currentPosition;
         for (let i = 0; i < 4; i++) {
-            currentPosition = position + i * (7 + 1);
+            currentPosition = position + i * (gridWidth + 1);
             if (i === 0) {
-                if (currentPosition % 7 >= 4) {
+                if (currentPosition % gridWidth >= 4) {
                     return;
                 }
             }
-            if ((currentPosition) >= 42) {
+            if ((currentPosition) >= gridTotalPositions) {
                 return;
             }
             if (squares[currentPosition].classList.contains(currentPlayer)) {
@@ -138,13 +141,13 @@ document.addEventListener('DOMContentLoaded', () => {
         let positions = [];
         let currentPosition;
         for (let i = 0; i < 4; i++) {
-            currentPosition = position + i * (7 - 1);
+            currentPosition = position + i * (gridWidth - 1);
             if (i === 0) {
-                if (currentPosition % 7 < 3) {
+                if (currentPosition % gridWidth < 3) {
                     return;
                 }
             }
-            if ((currentPosition) >= 42) {
+            if ((currentPosition) >= gridTotalPositions) {
                 return;
             }
             if (squares[currentPosition].classList.contains(currentPlayer)) {
@@ -163,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const highLightWinners = (winPositionsArray, currentPlayer) => {
         console.log('Current winner ', currentPlayer);
-        // console.log('we have row on ', positions);
+        console.log('we have row on ', winPositionsArray);
         winPositionsArray.forEach(p => squares[p].classList.add('highlight'));
     }
 
@@ -180,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const checkBoard = () => {
         const checkForPlayer = createCurrentPlayerClass(currentPlayer);
-        for (let s = 0; s < squares.length - 7; s++) {
+        for (let s = 0; s < squares.length - gridWidth; s++) {
             if (squares[s].classList.contains(checkForPlayer)) {
                 console.log(`square: ${s} is taken by: ${squares[s].classList}`);
                 if (checkHorizontal(s, checkForPlayer) ||
