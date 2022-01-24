@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    const checkSquareDescDesc = (position, currentPlayer) => {
+    const checkSquareDesc = (position, currentPlayer) => {
         let counter = 0;
         let positions = [];
         let currentPosition;
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    const checkSquareDescAsc = (position, currentPlayer) => {
+    const checkSquareAsc = (position, currentPlayer) => {
         let counter = 0;
         let positions = [];
         let currentPosition;
@@ -199,8 +199,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log(`square: ${s} is taken by: ${squares[s].classList}`);
                 if (checkHorizontal(s, checkForPlayer) ||
                     checkVertical(s, checkForPlayer) ||
-                    checkSquareDescDesc(s, checkForPlayer) ||
-                    checkSquareDescAsc(s, checkForPlayer)) {
+                    checkSquareDesc(s, checkForPlayer) ||
+                    checkSquareAsc(s, checkForPlayer)) {
                     return true;
                 };
             }
